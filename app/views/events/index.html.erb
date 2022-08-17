@@ -1,10 +1,14 @@
 <h1>Events</h1>
 
+Our blog has <%= Event.public_count %> events and counting!
+
 <ul>
   <% @events.each do |event| %>
-    <li>
-        <%= link_to event.title, event %>
-    </li>
+    <% unless event.archived? %>
+        <li>
+            <%= link_to event.title, event %>
+        </li>
+    <% end %>
   <% end %>
 </ul>
 
